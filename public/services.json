@@ -1,0 +1,38 @@
+[
+    {
+      "img": "https://img.freepik.com/free-photo/dental-implants-surgery-concept-pen-tool-created-clipping-path-included-jpeg-easy-composite_460848-10421.jpg?size=626&ext=jpg&uid=R36483021&ga=GA1.2.1946281263.1666735946&semt=sph",
+      "price": 800,
+      "name": "Teeth Whitening",
+      "description": "Want a whiter smile? Your main options are at-home and in-office bleaching. At-home teeth whitening involves custom-made dental trays filled with hydrogen peroxide gel that you can use at home. For in-office bleaching, your dentist will combine hydrogen peroxide gel with a light source to speed up the whitening process"
+    },
+    {
+      "img": "https://t3.ftcdn.net/jpg/01/66/30/76/240_F_166307671_crNuwqu7BbTKrFYYeJT53uwCMOwcthiM.jpg",
+      "price": 1200,
+      "name": "Cavity Fillings",
+      "description": "A filling is used to treat a small hole, or cavity, in a tooth. To repair a cavity, a dentist removes the decayed tooth tissue and then fills the space with a filling material.."
+    },
+    {
+      "img": "https://img.freepik.com/free-photo/dental-implants-surgery-concept-pen-tool-created-clipping-path-included-jpeg-easy-composite_460848-10711.jpg?size=626&ext=jpg&uid=R36483021&ga=GA1.2.1946281263.1666735946&semt=sph",
+      "price": 4694,
+      "name": "Root Canal",
+      "description": "It has an oval or spherical shape and a dark green and smooth rind, sometimes showing irregular areas of a pale green colour. It has a sweet"
+    },
+    {
+      "img": "https://img.freepik.com/free-photo/beautiful-young-woman-with-teeth-braces_155003-10317.jpg?size=626&ext=jpg&uid=R36483021&ga=GA1.2.1946281263.1666735946&semt=sph",
+      "price": 789,
+      "name": "Invisalign",
+      "description": "Crooked smile? Invisalign is the best way to straighten your smile without interfering with your day-to-day life. Invisalign gradually moves your teeth using a series of custom-fitted, removable aligners. Invisalign aligners are nearly invisible and very comfortable to wear"
+    },
+    {
+      "img": "https://img.freepik.com/free-vector/vector-dental-veneers-human-teeth-isolated-white-background_1284-45547.jpg?size=338&ext=jpg&uid=R36483021&ga=GA1.2.1946281263.1666735946&semt=sph",
+      "price": 88,
+      "name": " Dental Veneers",
+      "description": "Many people are discovering the benefits of veneers. Veneers are thin coverings that are placed over the front part of the teeth. Veneers are placed on teeth that are crooked, poorly shaped, or severely discolored. They may also be used to lighten teeth that are yellow or have a gray cast."
+    },
+    {
+      "img": "https://img.freepik.com/free-vector/tooth-removal-cartoon-illustration_74855-17131.jpg?size=626&ext=jpg&uid=R36483021&ga=GA1.2.1946281263.1666735946&semt=sph",
+      "price": 799,
+      "name": "Tooth Extractions",
+      "description": "A tooth extraction, or dental extraction, is the removal of a tooth from its socket in the bone. There are a number of reasons why tooth removal may be necessary. An extraction may be necessary if your tooth is so damaged that it can't be fixed.."
+    }
+  ]
