@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import HomeService from './HomeService';
 
 const HomeServices = () => {
@@ -23,6 +24,11 @@ const HomeServices = () => {
                         service={service}
                     ></HomeService>)
                 }
+                <div className="card-actions justify-center align-middle">
+                    <Link to='/services'>
+                        <button className="btn btn-primary">See All</button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

@@ -19,6 +19,7 @@ const Header = () => {
             <>
                 <li className='font-semibold'><Link to="/orders">My Reviews</Link></li>
                 <li className='font-semibold'><Link to="/">Add Service</Link></li>
+                <li className='font-semibold'><Link to="/services">Services</Link></li>
                 <li className='font-semibold'><Link to="/blogs">Blogs</Link></li>
                 <li className='font-semibold'>
                     <button className='btn-ghost'>Sign Out</button>
