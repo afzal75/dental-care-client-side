@@ -1,33 +1,42 @@
 
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo.jpeg'
-// import logo from '../../../assets/logo.svg'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const Header = () => {
-
-    // const handleLogOut = () => {
-    //     logOut()
-    //     .then( () => {})
-    //     .catch( () => {})
-    // }
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(() => { })
+    }
 
     const menuItems = <>
         <li className='font-semibold'><Link to="/">Home</Link></li>
         {
-            
-            <>
-                <li className='font-semibold'><Link to="/orders">My Reviews</Link></li>
-                <li className='font-semibold'><Link to="/">Add Service</Link></li>
-                <li className='font-semibold'><Link to="/services">Services</Link></li>
-                <li className='font-semibold'><Link to="/blogs">Blogs</Link></li>
-                <li className='font-semibold'>
-                    <button className='btn-ghost'><Link to="/signup">Sign Up</Link></button>
-                </li>
-                <li className='font-semibold'><Link to="/login">Login</Link></li>
 
-            </> 
-            
+            <>
+                {
+                    user?.email ?
+                        <>
+                            <li className='font-semibold'><Link to="/myreviews">My Reviews</Link></li>
+                            <li className='font-semibold'><Link to="/">Add Service</Link></li>
+                            <li className='font-semibold'>
+                                <button onClick={handleLogOut} className='btn-ghost'><Link to="/signup">Sign Out</Link></button>
+                            </li>
+                        </>
+                        :
+                        <>
+                            <li className='font-semibold'><Link to="/login">Login</Link></li>
+                            <li className='font-semibold'><Link to="/services">Services</Link></li>
+                            <li className='font-semibold'><Link to="/blogs">Blogs</Link></li>
+                        </>
+
+                }
+
+            </>
         }
     </>
 
