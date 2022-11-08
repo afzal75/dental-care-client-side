@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/logo/logo.jpeg'
 // import logo from '../../../assets/logo.svg'
 
 
@@ -16,7 +17,7 @@ const Header = () => {
         {
             
             <>
-                <li className='font-semibold'><Link to="/orders">Orders</Link></li>
+                <li className='font-semibold'><Link to="/orders">My Reviews</Link></li>
                 <li className='font-semibold'><Link to="/">Add Service</Link></li>
                 <li className='font-semibold'><Link to="/blogs">Blogs</Link></li>
                 <li className='font-semibold'>
@@ -40,8 +41,8 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl">
-                    {/* <img src={logo} alt="" /> */}
+                <Link to="/" className="w-20 normal-case text-xl">
+                    <img src={logo} alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
