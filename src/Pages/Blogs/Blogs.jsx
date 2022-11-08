@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div className='w-1/2 place-content-center'>
+        <div className='w-1/2 m-auto text-center'>
             <h4 className='text-2xl'>Question: Difference between sql and nosql?</h4>
             <p>Answere: SQL is the programming language used to interface with relational databases. (Relational databases model data as records in rows and tables with logical links between them). NoSQL is a class of DBMs that are non-relational and generally do not use SQL.</p>
             <h4 className='text-2xl'>Question: What is JWT, and how does it work?</h4>
