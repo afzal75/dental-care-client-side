@@ -1,12 +1,34 @@
 
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import images from '../../assets/images/login.jpg'
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigte = useNavigate();
+
+
     const handleLogin = (event) => {
-        event.prventDefault();
-        
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        login(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                navigte('/');
+
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
 
     }
 
@@ -39,6 +61,9 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center'>Have an account? <Link className='text-blue-600 font-bold' to="/signup">Sign Up</Link></p>
+                    <p className='bg-red-600'>
+                        {error}
+                    </p>
                 </div>
             </div>
         </div>
