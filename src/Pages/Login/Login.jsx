@@ -56,7 +56,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigte('/')
+                navigte('/');
             })
             .catch(error => {
                 console.error(error);
