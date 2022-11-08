@@ -1,15 +1,22 @@
 
+import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import images from '../../assets/images/login.jpg'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, providerLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const location = useLocation();
     const navigte = useNavigate();
 
+
+    const googleProvider = new GoogleAuthProvider();
+
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -22,14 +29,25 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-                navigte('/');
+                navigte(from, { replace: true });
 
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+                setError(error.message);
             })
+    };
 
-
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigte('/');
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     return (
@@ -59,11 +77,21 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
                         </div>
+                        <p className='text-red-600'>
+                            {error}
+                        </p>
+                        <p className='text-center'>Have an account? <Link className='text-blue-600 font-bold' to="/signup">Sign Up</Link></p>
+                        <br />
+                        <br />
+                        {/* <button className="btn outline btn-primary">CONTINUE WITH GOOGLE</button>
+                        <button className="btn btn-primary">CONTINUE WITH GITHUB</button> */}
+                        {/* <button onClick={handleGoogleSignIn} className="btn btn-outline btn-accent ">CONTINUE WITH GOOGLE</button>
+                        <button className="btn btn-outline btn-accent">CONTINUE WITH GITHUB</button> */}
                     </form>
-                    <p className='text-center'>Have an account? <Link className='text-blue-600 font-bold' to="/signup">Sign Up</Link></p>
-                    <p className='bg-red-600'>
-                        {error}
-                    </p>
+                    <div className='w-full ml-24'>
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-accent mb-4">CONTINUE WITH GOOGLE</button>
+                        <button className="btn btn-outline btn-accent">CONTINUE WITH GITHUB</button>
+                    </div>
                 </div>
             </div>
         </div>
