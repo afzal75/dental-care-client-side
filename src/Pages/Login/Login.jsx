@@ -1,5 +1,5 @@
 
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import images from '../../assets/images/login.jpg'
@@ -7,13 +7,14 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
 const Login = () => {
-    const { login, providerLogin } = useContext(AuthContext);
+    const { login, providerLogin, githubProviderLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
     const location = useLocation();
     const navigte = useNavigate();
 
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
 
     const from = location.state?.from?.pathname || '/';
@@ -44,6 +45,18 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigte('/');
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
+    const handleGithubLogin = () => {
+        githubProviderLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigte('/')
             })
             .catch(error => {
                 console.error(error);
@@ -83,14 +96,10 @@ const Login = () => {
                         <p className='text-center'>Have an account? <Link className='text-blue-600 font-bold' to="/signup">Sign Up</Link></p>
                         <br />
                         <br />
-                        {/* <button className="btn outline btn-primary">CONTINUE WITH GOOGLE</button>
-                        <button className="btn btn-primary">CONTINUE WITH GITHUB</button> */}
-                        {/* <button onClick={handleGoogleSignIn} className="btn btn-outline btn-accent ">CONTINUE WITH GOOGLE</button>
-                        <button className="btn btn-outline btn-accent">CONTINUE WITH GITHUB</button> */}
                     </form>
                     <div className='w-full ml-24'>
                         <button onClick={handleGoogleSignIn} className="btn btn-outline btn-accent mb-4">CONTINUE WITH GOOGLE</button>
-                        <button className="btn btn-outline btn-accent">CONTINUE WITH GITHUB</button>
+                        <button onClick={handleGithubLogin} className="btn btn-outline btn-accent">CONTINUE WITH GITHUB</button>
                     </div>
                 </div>
             </div>
