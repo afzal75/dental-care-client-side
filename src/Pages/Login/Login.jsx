@@ -1,11 +1,13 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import images from '../../assets/images/login.jpg'
 
-const Login = () => {
 
+const Login = () => {
     const handleLogin = (event) => {
         event.prventDefault();
+        
+
     }
 
     return (

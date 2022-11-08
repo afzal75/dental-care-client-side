@@ -22,7 +22,7 @@ const Header = () => {
                 <li className='font-semibold'><Link to="/services">Services</Link></li>
                 <li className='font-semibold'><Link to="/blogs">Blogs</Link></li>
                 <li className='font-semibold'>
-                    <button className='btn-ghost'>Sign Out</button>
+                    <button className='btn-ghost'><Link to="/signup">Sign Up</Link></button>
                 </li>
                 <li className='font-semibold'><Link to="/login">Login</Link></li>
 

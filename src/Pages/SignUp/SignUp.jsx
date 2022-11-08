@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+// import { Form } from 'react-router-dom';
 import images from '../../assets/images/signup.jpg'
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
-
+    const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const handleSignUp = (event) => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                setError('');
+                form.reset();
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            })
     }
 
     return (
@@ -41,6 +59,9 @@ const SignUp = () => {
                         </div>
                     </form>
                     <p className='text-center'>Already have an account? <Link className='text-blue-600 font-bold' to="/login">Login</Link></p>
+                    <p className='bg-red-600'>
+                        {error}
+                    </p>
                 </div>
             </div>
         </div>
