@@ -1,5 +1,6 @@
 import Main from "../../Layout/Main";
 import Blogs from "../../Pages/Blogs/Blogs";
+import CardDetails from "../../Pages/CardDetails/CardDetails";
 import Home from "../../Pages/Home/Home/Home";
 import Services from "../../Pages/Services/Services";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
                 path: '/services',
                 element: <Services></Services>,
                 loader: () => fetch('http://localhost:5000/service'),
+            },
+            {
+                path: '/service/:id',
+                element: <CardDetails></CardDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
             },
             {
                 path: 'blogs',

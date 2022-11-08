@@ -18,10 +18,10 @@ const Service = ({ service }) => {
                     }
 
                     <div className="card-actions justify-center">
-                    <Link to={`/cheackout/${_id}`}>
-                        <button className="btn btn-primary">View Details</button>
-                    </Link>
-                </div>
+                        <Link to={`/service/${_id}`}>
+                            <button className="btn btn-primary">View Details</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
