@@ -1,7 +1,7 @@
-
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo.jpeg'
+import { FaUser } from "react-icons/fa";
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
@@ -25,6 +25,7 @@ const Header = () => {
                             <li className='font-semibold'><Link to="/">Add Service</Link></li>
                             <li className='font-semibold'>
                                 <button onClick={handleLogOut} className='btn-ghost'><Link to="/signup">Sign Out</Link></button>
+                                <span>{user?.displayName}</span>
                             </li>
                         </>
                         :
@@ -60,8 +61,13 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button className="btn btn-outline btn-warning">Appoinment</button>
+            <div className="navbar-center">
+                {user?.photoURL ?
+                    <img style={{height: '30px', borderRadius: '50px'}}  src={user?.photoURL} alt="" />
+                    
+                    :
+                    <FaUser></FaUser>
+                }
             </div>
         </div>
     );

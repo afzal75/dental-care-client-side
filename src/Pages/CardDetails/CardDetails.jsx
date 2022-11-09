@@ -5,8 +5,13 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const CardDetails = () => {
-    const { name, img, price, description } = useLoaderData();
+    const { _id, name, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext)
+
+
+    
+
+
     return (
         <div>
             <div className='w-1/2 m-auto'>
