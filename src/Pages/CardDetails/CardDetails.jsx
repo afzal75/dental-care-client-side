@@ -9,7 +9,37 @@ const CardDetails = () => {
     const { user } = useContext(AuthContext)
 
 
-    
+    const handleUserReview = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = user?.displayName;
+        const email = user?.email;
+        const photoURL = user?.photoURL;
+        // const phone = form.phone.value;
+        const message = form.message.value;
+
+        const review = {
+            user: name,
+            email: email,
+            message: message,
+            photoURL: photoURL,
+            serviceid: _id
+        }
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => console.error(error))
+
+    }
 
 
     return (
@@ -32,14 +62,14 @@ const CardDetails = () => {
                 user?.email ?
                     <>
                         <div className='mt-10 w-3/4 m-auto'>
-                            <form>
+                            <form onSubmit={handleUserReview}>
                                 {/* <h2 className="text-4xl">You are about to order: {}</h2>
                     <h4 className="text-3xl">Price: {price}</h4> */}
                                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                                    <input name='firstName' type="text" placeholder="First Name" className="input input-ghost input-bordered w-full" />
-                                    <input name='lastName' type="text" placeholder="Last Name" className="input input-ghost input-bordered w-full" />
-                                    <input name='phone' type="text" placeholder="Your Phone" className="input input-ghost input-bordered w-full" required />
-                                    <input name='email' type="text" placeholder="Your Email" className="input input-ghost input-bordered w-full" readOnly />
+                                    <input name='name' type="text" placeholder="First Name" defaultValue={user?.displayName} className="input input-ghost input-bordered w-full" />
+                                    {/* <input name='lastName' type="text" placeholder="Last Name" className="input input-ghost input-bordered w-full" /> */}
+                                    <input name='photoURL' type="text" placeholder="PhotoURL" defaultValue={user?.photoURL} className="input input-ghost input-bordered w-full" required readOnly />
+                                    <input name='email' type="text" placeholder="Your Email" defaultValue={user?.email} className="input input-ghost input-bordered w-full" readOnly />
                                 </div>
                                 <textarea name='message' className="textarea textarea-bordered w-full h-24 mt-2" placeholder="Your Message" required></textarea>
 
