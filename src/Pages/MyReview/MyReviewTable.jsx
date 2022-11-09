@@ -1,18 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 // import { MdOutlineDelete } from "react-icons/fa";
 
-const MyReviewTable = ({ review }) => {
+const MyReviewTable = ({ review, handleDelete }) => {
 
     const { _id, serviceName, name,  message, email } = review;
     // const [reviewService, setReviewService] = useState({});
     const { user } = useContext(AuthContext);
 
+    
+
     return (
         <tr>
             <th>
                 <label>
-                    <button className='btn btn-ghost'>Delete</button>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-ghost'>Delete</button>
                 </label>
             </th>
             <td>
