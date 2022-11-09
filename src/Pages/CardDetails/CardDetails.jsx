@@ -3,9 +3,10 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import Rev from '../Rev/Rev';
 
 const CardDetails = () => {
-    const { _id, name, img, price, description } = useLoaderData();
+    const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext)
 
 
@@ -19,7 +20,8 @@ const CardDetails = () => {
         const message = form.message.value;
 
         const review = {
-            user: name,
+            name: name,
+            serviceName: title,
             email: email,
             message: message,
             photoURL: photoURL,
@@ -52,7 +54,7 @@ const CardDetails = () => {
                         </PhotoView>
                     </PhotoProvider>
                     <div className="card-body">
-                        <h2 className="card-title">{name}</h2>
+                        <h2 className="card-title">{title}</h2>
                         <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
                         <p>{description}</p>
                     </div>
@@ -84,6 +86,7 @@ const CardDetails = () => {
                         </button>
                     </>
             }
+            <Rev></Rev>
         </div>
     );
 };

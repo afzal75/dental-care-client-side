@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HomeService = ({ service }) => {
-    const { _id, name, img, price, description } = service;
+    const { _id, title, img, price, description } = service;
     return (
             <div>
                 <div className="card card-compact w-90 bg-base-100 shadow-xl">
                     <figure><img src={img} alt="Dental" /></figure>
                     <div className="card-body">
-                        <h2 className="card-title text-center">{name}</h2>
+                        <h2 className="card-title text-center">{title}</h2>
                         <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
                         {
                             description.length > 100 ?
