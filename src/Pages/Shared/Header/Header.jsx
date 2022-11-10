@@ -55,6 +55,9 @@ const Header = () => {
                 <Link to="/" className="w-20 normal-case text-xl">
                     <img src={logo} alt="" />
                 </Link>
+                <Link to="/" className="text-bold mr-4 text-xl">
+                    <h2 className='text-4xl'>Dental Care</h2>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
