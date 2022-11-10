@@ -1,3 +1,4 @@
+import { toast, ToastContainer } from "react-toastify";
 import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
@@ -27,6 +28,9 @@ const AddService = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if(data.acknowledged){
+                    toast('Added Service SuccessFully')
+                }
             })
             .catch(error => console.error(error))
     }
@@ -45,6 +49,7 @@ const AddService = () => {
 
                 <input className='btn btn-warning' type="submit" value="Add Service" />
             </form>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

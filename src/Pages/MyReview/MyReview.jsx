@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import MyReviewTable from './MyReviewTable';
@@ -26,7 +27,7 @@ const MyReview = () => {
             .then(data => {
                 console.log(data);
                 if(data.deletedCount > 0){
-                    alert('deleted successfully');
+                    toast('deleted successfully');
                     const remaining = reviews.filter(review => review._id !== id);
                     setReviews(remaining);
                 }
@@ -47,7 +48,7 @@ const MyReview = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Service</th>
-                            <th>Message</th>
+                            <th>Review</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -65,6 +66,7 @@ const MyReview = () => {
                     </tbody>
                 </table>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
