@@ -8,7 +8,7 @@ const SingleReview = () => {
     const [singleReviews, setSingleReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?serviceid=${user?.serviceid}`)
+        fetch(`https://assignment-11-server-side-tawny.vercel.app/reviews?serviceid=${user?.serviceid}`)
             .then(res => res.json())
             .then(data => setSingleReviews(data))
     }, [user?.serviceid]);

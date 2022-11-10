@@ -29,7 +29,7 @@ const CardDetails = () => {
             serviceid: _id
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-11-server-side-tawny.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

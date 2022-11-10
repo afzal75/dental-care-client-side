@@ -30,12 +30,12 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/service'),
+                loader: () => fetch('https://assignment-11-server-side-tawny.vercel.app/service'),
             },
             {
                 path: '/service/:id',
                 element:<CardDetails></CardDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-side-tawny.vercel.app/service/${params.id}`)
             },
             {
                 path: 'blogs',
