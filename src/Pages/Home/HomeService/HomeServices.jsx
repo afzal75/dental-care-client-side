@@ -14,8 +14,7 @@ const HomeServices = () => {
     return (
         <div>
             <div className='text-center mb-4'>
-                <p className="text-2xl font-bold text-orange-600">Services</p>
-                <h2 className="text-5xl font-semibold">Our Service</h2>
+                <h2 className="text-4xl mt-5 font-semibold">Our Service</h2>
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {

@@ -66,17 +66,15 @@ const CardDetails = () => {
                     <>
                         <div className='mt-10 w-3/4 m-auto'>
                             <form onSubmit={handleUserReview}>
-                                {/* <h2 className="text-4xl">You are about to order: {}</h2>
-                    <h4 className="text-3xl">Price: {price}</h4> */}
                                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                                     <input name='name' type="text" placeholder="First Name" defaultValue={user?.displayName} className="input input-ghost input-bordered w-full" />
-                                    {/* <input name='lastName' type="text" placeholder="Last Name" className="input input-ghost input-bordered w-full" /> */}
+                                    <input name='lastName' type="text" placeholder="Last Name" disabled className="input input-ghost input-bordered w-full" />
                                     <input name='photoURL' type="text" placeholder="PhotoURL" defaultValue={user?.photoURL} className="input input-ghost input-bordered w-full" required readOnly />
                                     <input name='email' type="text" placeholder="Your Email" defaultValue={user?.email} className="input input-ghost input-bordered w-full" readOnly />
                                 </div>
                                 <textarea name='message' className="textarea textarea-bordered w-full h-24 mt-2" placeholder="Your Message" required></textarea>
 
-                                <input className='btn btn-warning' type="submit" value="Place Your Order" />
+                                <input className='btn btn-warning' type="submit" value="Place Your Review" />
                             </form>
                         </div>
                     </>

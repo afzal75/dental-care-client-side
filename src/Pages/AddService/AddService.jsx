@@ -43,7 +43,7 @@ const AddService = () => {
                     <input name='title' type="text" placeholder="Service Name" className="input input-ghost input-bordered w-full" />
                     <input name='price' type="text" placeholder="Price" className="input input-ghost input-bordered w-full" />
                     <input name='img' type="text" placeholder="IMG" className="input input-ghost input-bordered w-full" required />
-                    {/* <input name='email' type="text" placeholder="Your Email"  className="input input-ghost input-bordered w-full" readOnly /> */}
+                    <input name='email' type="text" placeholder="Your Email"  className="input input-ghost input-bordered w-full" readOnly />
                 </div>
                 <textarea name='description' className="textarea textarea-bordered w-full h-24 mt-2" placeholder="Your Description" required></textarea>
 

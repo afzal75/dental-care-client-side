@@ -49,8 +49,7 @@ const MyReview = () => {
             if(data.modifiedCount > 0) {
                 const remaining = reviews.filter(review => review._id !== id);
                 const approving = reviews.find(review => review._id === id);
-                approving.status = 'Approved'
-
+                approving.status = 'Approved';
                 const newOrders = [approving, ...remaining];
                 setReviews(newOrders);
             }
