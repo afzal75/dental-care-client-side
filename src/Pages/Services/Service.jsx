@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import AddService from '../AddService/AddService';
 
 const Service = ({ service }) => {
     const { _id, title, img, price, description } = service;
@@ -24,6 +25,7 @@ const Service = ({ service }) => {
                     </div>
                 </div>
             </div>
+            {/* <AddService></AddService> */}
         </div>
     );
 };

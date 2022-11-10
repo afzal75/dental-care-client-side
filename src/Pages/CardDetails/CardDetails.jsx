@@ -3,11 +3,12 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import Rev from '../Rev/Rev';
+import SingleReview from '../SingleReview/SingleReview';
+
 
 const CardDetails = () => {
     const { _id, title, img, price, description } = useLoaderData();
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
 
 
     const handleUserReview = event => {
@@ -86,7 +87,7 @@ const CardDetails = () => {
                         </button>
                     </>
             }
-            <Rev></Rev>
+            <SingleReview></SingleReview>
         </div>
     );
 };

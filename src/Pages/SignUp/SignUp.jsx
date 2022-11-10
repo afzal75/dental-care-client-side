@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 // import { Form } from 'react-router-dom';
 import images from '../../assets/images/signup.jpg'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    useTitle('Signup')
     const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;

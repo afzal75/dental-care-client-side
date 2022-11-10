@@ -4,11 +4,13 @@ import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import images from '../../assets/images/login.jpg'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
     const { login, providerLogin, githubProviderLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
+    useTitle('Login');
     const location = useLocation();
     const navigte = useNavigate();
 
