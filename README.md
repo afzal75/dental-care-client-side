@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+* My Website name: DENTAL SERVICE.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+#### Features:
+* Clickeable SERVICE Card
+* Firebase Authentication
+* Mobile and desktop responsive
+* My Service Section
+* Customer Review Section
+* Google, Github Authentication
+* Email, Password Authentication
+* CheakeOut Page.
+* Private route
+
+#### Techonologies
+* client side: React, Tailwind Css & Daisy UI, React Icons, React-router-dom, Firebase.
+
+* Server side: Node, Express, Vercel
+
+* Database: MongoDB
 
 ## Available Scripts
 

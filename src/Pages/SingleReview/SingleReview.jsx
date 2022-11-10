@@ -14,27 +14,27 @@ const SingleReview = () => {
     }, [user?.serviceid]);
 
 
-    const handleStatusUpdate = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
-            method: 'PATCH', 
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({status: 'Approved'})
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.modifiedCount > 0) {
-                const remaining = singleReviews.filter(review => review._id !== id);
-                const approving = singleReviews.find(review => review._id === id);
-                approving.status = 'Approved'
+    // const handleStatusUpdate = id => {
+    //     fetch(`http://localhost:5000/reviews/${id}`, {
+    //         method: 'PATCH', 
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify({status: 'Approved'})
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data);
+    //         if(data.modifiedCount > 0) {
+    //             const remaining = singleReviews.filter(review => review._id !== id);
+    //             const approving = singleReviews.find(review => review._id === id);
+    //             approving.status = 'Approved'
 
-                const newOrders = [approving, ...remaining];
-                setSingleReviews(newOrders);
-            }
-        })
-    }
+    //             const newOrders = [approving, ...remaining];
+    //             setSingleReviews(newOrders);
+    //         }
+    //     })
+    // }
 
 
     return (
@@ -61,7 +61,6 @@ const SingleReview = () => {
                             singleReviews?.map(review => <SingleReviews
                                 key={review._id}
                                 review={review}
-                            handleStatusUpdate={handleStatusUpdate}
                             ></SingleReviews>)
                         }
                     </tbody>

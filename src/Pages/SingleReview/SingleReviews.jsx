@@ -36,11 +36,11 @@ const SingleReviews = ({ review, handleStatusUpdate }) => {
                         <td>
                             {message}
                         </td>
-                        <td>
+                        {/* <td>
                             <button onClick={() => handleStatusUpdate(_id)}>
                                 {status ? status : 'PENDING'}
                             </button>
-                        </td>
+                        </td> */}
                     </tr>
                 </>
             }

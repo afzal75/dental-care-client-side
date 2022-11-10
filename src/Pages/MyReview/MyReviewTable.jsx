@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-// import { MdOutlineDelete } from "react-icons/fa";
 
-const MyReviewTable = ({ review, handleDelete }) => {
+const MyReviewTable = ({ review, handleDelete, handleStatusUpdate }) => {
 
-    const { _id, serviceName, name, message, email } = review;
+    const { _id, serviceName, name, message, email, status } = review;
     // const [reviewService, setReviewService] = useState({});
     const { user } = useContext(AuthContext);
 
@@ -41,6 +40,11 @@ const MyReviewTable = ({ review, handleDelete }) => {
                             <td>
                                 {message}
                             </td>
+                            <td>
+                            <button onClick={() => handleStatusUpdate(_id)}>
+                                {status ? status : 'PENDING'}
+                            </button>
+                        </td>
                         </tr>
                     </>
             }
